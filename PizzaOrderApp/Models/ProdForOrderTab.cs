@@ -9,9 +9,11 @@ namespace PizzaOrderApp.Models
     [Table("ProdForOrderTab")]
     public partial class ProdForOrderTab
     {
+        
         public int ID { get; set; }
 
         public int OrderID { get; set; }
+
 
         public int ProductID { get; set; }
 
