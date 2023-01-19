@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PizzaOrderApp.Models.ProductsTab>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if(ViewBag.ErrMsg != null)
+            {
+                <p>Che pizza, c'è un piccolo errore. Riprova per favore :)</p>
+            }
+<h2>E tu quale scegli? </h2>
+
+<div class="d-flex gap-1">
+    @foreach (var item in Model)
+    {
+
+        @*@Html.DisplayFor(modelItem => item.Name)
+
+            @Html.DisplayFor(modelItem => item.URLImg)
+
+            @Html.DisplayFor(modelItem => item.Price)
+
+            @Html.DisplayFor(modelItem => item.DeliveryTime)
+
+            @Html.DisplayFor(modelItem => item.Ingredients)
+
+
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+
+        <div class="card border-0" style="width: 18rem;">
+            
+            <img src="~/Content/Assets/@item.URLImg" class="card-img-top" alt="pizza image">
+            <div class="card-body text-center">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Ingredients</p>
+                <p class="card-text">@item.Price.ToString("C")</p>
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID },new { @class = "btn btn-success"})
+            </div>
+        </div>
+
+
+    }
+</div>
+

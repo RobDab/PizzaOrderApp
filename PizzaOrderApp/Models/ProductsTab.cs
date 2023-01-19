@@ -22,7 +22,7 @@ namespace PizzaOrderApp.Models
         [StringLength(30)]
         public string Name { get; set; }
 
-        [Required]
+        
         [StringLength(20)]
         public string URLImg { get; set; }
 

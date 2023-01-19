@@ -27,12 +27,21 @@ namespace PizzaOrderApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductsTab productsTab = db.ProductsTab.Find(id);
-            if (productsTab == null)
+            try
             {
-                return HttpNotFound();
+                ProductsTab product = db.ProductsTab.Find(id);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
             }
-            return View(productsTab);
+            catch(Exception ex)
+            {
+                ViewBag.ErrMsg = ex.Message;
+            }
+            
+            return View();
         }
 
         // GET: Products/Create
@@ -46,16 +55,28 @@ namespace PizzaOrderApp.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,Name,URLImg,Price,DeliveryTime,Ingredients")] ProductsTab productsTab)
+        public ActionResult Create([Bind(Include = "ProductID,Name,Price,DeliveryTime,Ingredients")] ProductsTab product, HttpPostedFileBase uploadedImg)
         {
             if (ModelState.IsValid)
             {
-                db.ProductsTab.Add(productsTab);
+                if(uploadedImg == null)
+                {
+                    ViewBag.UploadErr = "Carica un'immagine per la nuova Pizza!";
+                    return View(product);
+                }
+                else
+                {
+                    product.URLImg = uploadedImg.FileName;
+                    string path = Server.MapPath("~/Content/Assets/" + uploadedImg.FileName);
+                    uploadedImg.SaveAs(path);
+                }
+
+                db.ProductsTab.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(productsTab);
+            return View(product);
         }
 
         // GET: Products/Edit/5

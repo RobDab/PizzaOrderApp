@@ -139,6 +139,10 @@
     <Compile Include="Migrations\202301171718204_InitialCreate.designer.cs">
       <DependentUpon>202301171718204_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301191809229_UrlImgrequiredNowFalse.cs" />
+    <Compile Include="Migrations\202301191809229_UrlImgrequiredNowFalse.designer.cs">
+      <DependentUpon>202301191809229_UrlImgrequiredNowFalse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\OrderTab.cs" />
@@ -220,11 +224,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Assets\" />
     <Folder Include="Views\OrderTabs\" />
-    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -234,6 +240,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202301171718204_InitialCreate.resx">
       <DependentUpon>202301171718204_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301191809229_UrlImgrequiredNowFalse.resx">
+      <DependentUpon>202301191809229_UrlImgrequiredNowFalse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
