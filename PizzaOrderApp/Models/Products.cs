@@ -7,12 +7,12 @@ namespace PizzaOrderApp.Models
     using System.Data.Entity.Spatial;
 
     [Table("ProductsTab")]
-    public partial class ProductsTab
+    public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductsTab()
+        public Products()
         {
-            ProdForOrderTab = new HashSet<ProdForOrderTab>();
+            ProdForOrderTab = new HashSet<ProdForOrder>();
         }
 
         [Key]
@@ -35,6 +35,6 @@ namespace PizzaOrderApp.Models
         public string Ingredients { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProdForOrderTab> ProdForOrderTab { get; set; }
+        public virtual ICollection<ProdForOrder> ProdForOrderTab { get; set; }
     }
 }

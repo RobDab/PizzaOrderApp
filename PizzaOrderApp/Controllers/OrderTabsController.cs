@@ -28,7 +28,7 @@ namespace PizzaOrderApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderTab orderTab = db.OrderTab.Find(id);
+            Order orderTab = db.OrderTab.Find(id);
             if (orderTab == null)
             {
                 return HttpNotFound();
@@ -48,7 +48,7 @@ namespace PizzaOrderApp.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,UserID,OrderDate,OrderTotal,OrderAdress,Delivered")] OrderTab orderTab)
+        public ActionResult Create([Bind(Include = "OrderID,UserID,OrderDate,OrderTotal,OrderAdress,Delivered")] Order orderTab)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace PizzaOrderApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderTab orderTab = db.OrderTab.Find(id);
+            Order orderTab = db.OrderTab.Find(id);
             if (orderTab == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,7 @@ namespace PizzaOrderApp.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,UserID,OrderDate,OrderTotal,OrderAdress,Delivered")] OrderTab orderTab)
+        public ActionResult Edit([Bind(Include = "OrderID,UserID,OrderDate,OrderTotal,OrderAdress,Delivered")] Order orderTab)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace PizzaOrderApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderTab orderTab = db.OrderTab.Find(id);
+            Order orderTab = db.OrderTab.Find(id);
             if (orderTab == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace PizzaOrderApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderTab orderTab = db.OrderTab.Find(id);
+            Order orderTab = db.OrderTab.Find(id);
             db.OrderTab.Remove(orderTab);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -7,7 +7,7 @@ namespace PizzaOrderApp.Models
     using System.Data.Entity.Spatial;
 
     [Table("UsersTab")]
-    public partial class UsersTab
+    public partial class Users
     {
         [Key]
         public int UserID { get; set; }
@@ -24,6 +24,9 @@ namespace PizzaOrderApp.Models
         [StringLength(10)]
         public string Role { get; set; }
 
-        public virtual OrderTab OrderTab { get; set; }
+
+        public bool RememberMe { get; set; }
+
+        public virtual Order OrderTab { get; set; }
     }
 }

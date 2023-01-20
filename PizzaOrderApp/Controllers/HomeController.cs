@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaOrderApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,17 @@ namespace PizzaOrderApp.Controllers
             return RedirectToAction("Index","Products");
         }
 
-        public ActionResult About()
+       public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Login(Users user)
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
+        
     }
 }

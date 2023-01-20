@@ -7,12 +7,12 @@ namespace PizzaOrderApp.Models
     using System.Data.Entity.Spatial;
 
     [Table("OrderTab")]
-    public partial class OrderTab
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderTab()
+        public Order()
         {
-            ProdForOrderTab = new HashSet<ProdForOrderTab>();
+            ProdForOrderTab = new HashSet<ProdForOrder>();
         }
 
         [Key]
@@ -31,9 +31,9 @@ namespace PizzaOrderApp.Models
 
         public bool? Delivered { get; set; }
 
-        public virtual UsersTab UsersTab { get; set; }
+        public virtual Users UsersTab { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProdForOrderTab> ProdForOrderTab { get; set; }
+        public virtual ICollection<ProdForOrder> ProdForOrderTab { get; set; }
     }
 }

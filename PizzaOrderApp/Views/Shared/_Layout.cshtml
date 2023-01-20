@@ -9,45 +9,55 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://kit.fontawesome.com/9a79bd6bbb.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <div style="height: 200px; width:200px; display: inline; background-image: url('/Content/Assets/logo.png'); background-position: center; background-size: cover"><a class="navbar-brand" href="#">@*<img src="~/Content/Assets/logo.png" />*@</a></div>
+            @*<a class="navbar-brand" href="#"><img src="~/Content/Assets/logo.png"/></a>*@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link fs-3 text-white" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#LoginModal" class="btn btn-danger text-white fs-3">
+                            <i class="fa-solid fa-pizza-slice me-1"></i>
+                            Log in
+                        </button>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                @*<form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                </form>*@
             </div>
         </div>
     </nav>
+
+    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    OK
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Accedi</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container body-content">
         @RenderBody()
@@ -57,7 +67,7 @@
         </footer>
     </div>
 
-    
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -143,15 +143,20 @@
     <Compile Include="Migrations\202301191809229_UrlImgrequiredNowFalse.designer.cs">
       <DependentUpon>202301191809229_UrlImgrequiredNowFalse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301202252170_AddedBoolPersistenceInUsers.cs" />
+    <Compile Include="Migrations\202301202252170_AddedBoolPersistenceInUsers.designer.cs">
+      <DependentUpon>202301202252170_AddedBoolPersistenceInUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DBContext.cs" />
-    <Compile Include="Models\OrderTab.cs" />
-    <Compile Include="Models\ProdForOrderTab.cs" />
-    <Compile Include="Models\ProductsTab.cs" />
-    <Compile Include="Models\UsersTab.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\ProdForOrder.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assets\logo.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -229,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Assets\" />
     <Folder Include="Views\OrderTabs\" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301191809229_UrlImgrequiredNowFalse.resx">
       <DependentUpon>202301191809229_UrlImgrequiredNowFalse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301202252170_AddedBoolPersistenceInUsers.resx">
+      <DependentUpon>202301202252170_AddedBoolPersistenceInUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
