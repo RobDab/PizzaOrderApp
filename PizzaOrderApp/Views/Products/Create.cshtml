@@ -65,14 +65,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-warning text-white py-1 mt-4 fs-4" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "IndexAdmin" , "Products",null, new { @class = "btn btn-link fw-bold text-white mt-3 p-0"})
 </div>
 
 @section Scripts {

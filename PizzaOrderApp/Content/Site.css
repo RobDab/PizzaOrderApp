@@ -8,6 +8,7 @@
     background-color: rgb(18, 18, 18);
     opacity: 0.85;
     min-height: 100vh;
+    z-index:2;
 }
 
 #bgimgDiv {
@@ -16,6 +17,7 @@
     background-size: cover;
     background-position:center;
     min-height: 100vh;
+    z-index:1;
 }
 
 

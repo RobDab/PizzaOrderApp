@@ -3,9 +3,15 @@
     ViewBag.Title = "Index";
 }
 
-<div class="d-flex justify-content-between text-light">
-    <h2 class="d-inline-block">Benvenuto</h2>
-    @Html.ActionLink("Accedi", "Index", "Products", null, new { @class = "btn btn-default fw-bold fs-4 text-light p-0" })
+<div class="d-flex flex-column text-light">
+    <h2 class="d-inline-block mx-auto">La Pizza Buona</h2>
+    <div class="w-75 mx-auto my-3 overflow-hidden" style="border:0, solid; border-radius: 20px; max-width:600px;">
+        <img src="~/Content/Assets/imgHome.jpg" class="img-fluid" />
+
+    </div>
+    <p class="px-3 fs-5 text-center mt-3">Scopri il nuovo portale di ordinazione a domicilio di IN FORNO, pizzeria <span class="fw-bold">storica</span> ma sempre al passo!</p>
+    <br />
+    @Html.ActionLink("ORDINA ORA","Index","Products", null, new { @class = "btn btn-danger fs-4 w-50 mx-auto"})
 </div>
     
 

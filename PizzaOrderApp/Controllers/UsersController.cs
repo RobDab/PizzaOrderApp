@@ -46,20 +46,14 @@ namespace PizzaOrderApp.Controllers
                 ViewBag.LogInErr = "Che pizza, devi aver sbagliato credenziali :( Riprova.";
                 return View();
             }
-
-            //if(count == 1)
-            //{
-            //    FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
-            //    return Redirect(FormsAuthentication.DefaultUrl);
-            //}
-            //else
-            //{
-            //    ViewBag.LogInErr = "Username o password errati, riprova";
-            //    return View();
-            //}
-
-
             
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index","Home");
+
         }
     }
 }
