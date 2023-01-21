@@ -15,6 +15,8 @@ namespace PizzaOrderApp.Controllers
         private DBContext db = new DBContext();
 
         // GET: Products
+
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.ProductsTab.ToList());

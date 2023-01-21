@@ -9,21 +9,13 @@ namespace PizzaOrderApp.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
-            return RedirectToAction("Index","Products");
-        }
-
-       public ActionResult Login()
-        {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Login(Users user)
-        {
-            return View();
-        }
+      
 
         
     }
