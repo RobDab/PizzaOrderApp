@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
 }
 
+<div>
+    <h2>Benvenuto</h2>
+    @Html.ActionLink("Scopri le Pizze", "Index", "Products", null, new { @class = "btn btn-danger" })
+</div>
 <h2>Benvenuto </h2>
-@Html.ActionLink("Scopri le Pizze","Index","Products")
+@Html.ActionLink("Scopri le Pizze","Index","Products",null, new { @class = "btn btn-danger"})
 
