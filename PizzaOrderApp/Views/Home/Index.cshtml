@@ -3,10 +3,10 @@
     ViewBag.Title = "Index";
 }
 
-<div>
-    <h2>Benvenuto</h2>
-    @Html.ActionLink("Scopri le Pizze", "Index", "Products", null, new { @class = "btn btn-danger" })
+<div class="d-flex justify-content-between text-light">
+    <h2 class="d-inline-block">Benvenuto</h2>
+    @Html.ActionLink("Accedi", "Index", "Products", null, new { @class = "btn btn-default fw-bold fs-4 text-light p-0" })
 </div>
-<h2>Benvenuto </h2>
-@Html.ActionLink("Scopri le Pizze","Index","Products",null, new { @class = "btn btn-danger"})
+    
+
 

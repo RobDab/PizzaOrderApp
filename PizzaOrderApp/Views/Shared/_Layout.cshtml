@@ -13,64 +13,70 @@
     <script src="https://kit.fontawesome.com/9a79bd6bbb.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div style="height: 100vh;">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
+            <div class="container-fluid">
+                <div class="ms-3" style="width:200px; display: inline-block;"><a class="navbar-brand" href="#"><img src="~/Content/Assets/logo.png" style="width: 200px;" /></a></div>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-danger">
-        <div class="container-fluid">
-            <div style="width:200px; display: inline-block;"><a class="navbar-brand" href="#"><img src="~/Content/Assets/logo.png" style="width: 200px;"/></a></div>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center  ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fs-3 text-white" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#LoginModal" class="btn btn-danger text-white fs-3">
-                            <i class="fa-solid fa-pizza-slice me-1"></i>
-                            Log in
-                        </button>
-                    </li>
-                </ul>
-                @*<form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>*@
-            </div>
-        </div>
-    </nav>
+                <button class="navbar-toggler btn btn-default border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="text-white">Menu</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 align-items-center ms-auto" id="navbarUl">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-white" aria-current="page" href="#">
+                                <i class="fa-solid fa-pizza-slice me-1"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#LoginModal" class="btn btn-danger text-white fs-5">
+                                <i class="fa-solid fa-user me-1"></i>
+                                Log in
+                            </button>
+                        </li>
+                    </ul>
 
-
-    @* --  LOGIN MODAL --*@
-    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                   OK
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Accedi</button>
                 </div>
             </div>
+        </nav>
+        @* --  LOGIN MODAL --*@
+        <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        OK
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Accedi</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="container body-content">
+        <div id="bgimgDiv">
+            <div id="bgcolorDiv" class="py-5">
+                <div class="container body-content text-light">
 
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year</p>
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="d-flex align-items-center">
+
+            <img src="~/Content/Assets/noBG-darkTheme.png" style="width: 80px;" />
+            <p class="text-light pt-2">&copy; @DateTime.Now.Year - Roberto Dabbicco</p>
+            @Html.ActionLink("Sez. Amministratore", "IndexAdmin", "Products", null, new { @class = "btn text-light fw-bolder fs-4 mb-3 ms-auto" })
         </footer>
     </div>
-
-
     @RenderSection("scripts", required: false)
 </body>
 </html>
