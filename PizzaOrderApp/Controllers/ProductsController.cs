@@ -15,8 +15,11 @@ namespace PizzaOrderApp.Controllers
         private DBContext db = new DBContext();
 
         // GET: Products
-
-        [Authorize]
+        [Authorize(Roles = "admin")]
+        public ActionResult IndexAdmin()
+        {
+            return View(db.ProductsTab.ToList());
+        }
         public ActionResult Index()
         {
             return View(db.ProductsTab.ToList());

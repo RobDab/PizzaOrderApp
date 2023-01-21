@@ -15,7 +15,7 @@
 <body>
     <div style="height: 100vh;">
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid my-3">
                 <div class="ms-3" style="width:200px; display: inline-block;"><a class="navbar-brand" href="#"><img src="~/Content/Assets/logo.png" style="width: 200px;" /></a></div>
 
                 <button class="navbar-toggler btn btn-default border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
 
             <img src="~/Content/Assets/noBG-darkTheme.png" style="width: 80px;" />
             <p class="text-light pt-2">&copy; @DateTime.Now.Year - Roberto Dabbicco</p>
-            @Html.ActionLink("Sez. Amministratore", "IndexAdmin", "Products", null, new { @class = "btn text-light fw-bolder fs-4 mb-3 ms-auto" })
+            @Html.ActionLink("Admin Section", "IndexAdmin", "Products", null, new { @class = "btn text-light fw-bolder fs-5 mb-3 ms-auto me-5" })
         </footer>
     </div>
     @RenderSection("scripts", required: false)

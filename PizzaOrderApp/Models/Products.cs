@@ -18,19 +18,22 @@ namespace PizzaOrderApp.Models
         [Key]
         public int ProductID { get; set; }
 
+        [Display(Name="Nome Pizza")]
         [Required]
         [StringLength(30)]
         public string Name { get; set; }
 
-        
+        [Display(Name="Immagine")]
         [StringLength(20)]
         public string URLImg { get; set; }
 
+        [Display(Name="Prezzo")]
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
         public int DeliveryTime { get; set; }
 
+        [Display(Name="Ingredienti")]
         [Required]
         public string Ingredients { get; set; }
 

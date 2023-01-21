@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PizzaOrderApp.Models.Products>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+}
+
+<div class="d-flex justify-content-between align-content-center mb-4">
+    <h2 class="d-inline-block">Tutte le pizze</h2>
+
+    <p class="d-inline-block">
+        @Html.ActionLink("Aggiungi una pizza", "Create", "Products", null, new { @class = "btn btn-warning fs-5 py-0 px-2 pb-1 fw-bolder" })
+    </p>
+</div>
+
+<table class="table text-white bg-black" style="border: 0, solid; border-radius: 20px 20px 0px 0px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URLImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="align-content-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <img src="~/Content/Assets/@item.URLImg" style="width: 70px;"/>
+        </td>
+        <td>
+            <p>@item.Price.ToString("C")</p>
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredients)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",null , new { id=item.ProductID }, new { @class="btn btn-warning me-2"}) 
+            @Html.ActionLink("Delete", "Delete",null, new { id=item.ProductID }, new { @class= "btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>

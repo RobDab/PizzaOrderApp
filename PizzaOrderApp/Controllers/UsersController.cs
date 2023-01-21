@@ -26,16 +26,39 @@ namespace PizzaOrderApp.Controllers
         public ActionResult Login(Users user)
         {
             var count = db.UsersTab.Count(u => u.Username == user.Username && u.Password == user.Password);
+            
+
             if(count == 1)
             {
-                FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
-                return RedirectToAction("Index", "Products");
+                Users current = db.UsersTab.Where(u => u.Username == user.Username && u.Password == user.Password).First();
+                FormsAuthentication.SetAuthCookie(current.Username, current.RememberMe);
+                if (current.Role == "admin")
+                {
+                    return RedirectToAction("IndexAdmin", "Products");
+                }
+                else
+                {
+                    return Redirect(FormsAuthentication.DefaultUrl);
+                }
             }
             else
             {
-                ViewBag.LogInErr = "Username o password errati, riprova";
+                ViewBag.LogInErr = "Che pizza, devi aver sbagliato credenziali :( Riprova.";
                 return View();
             }
+
+            //if(count == 1)
+            //{
+            //    FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
+            //    return Redirect(FormsAuthentication.DefaultUrl);
+            //}
+            //else
+            //{
+            //    ViewBag.LogInErr = "Username o password errati, riprova";
+            //    return View();
+            //}
+
+
             
         }
     }

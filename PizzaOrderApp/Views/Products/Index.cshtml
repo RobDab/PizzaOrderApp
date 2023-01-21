@@ -13,8 +13,8 @@
 }
 
 
-<h2 style="text-align: center; margin-block: 2em; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Ciao <span style="font-weight: 600;">@User.Identity.Name</span>, voglia di pizza?</h2>
-
+<h2 style="font-weight:600; font-size:3rem; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Benvenuto @if (User.Identity.Name != null) {<span style="font-weight: 600;">@User.Identity.Name </span>}</h2>
+<p class="mb-5 fs-3" style="text-align: center;">voglia di pizza?</p>
 <div class="d-flex gap-2 flex-wrap justify-content-between px-2 mx-2">
     @foreach (var item in Model)
     {
@@ -26,8 +26,7 @@
             <div class="card-body text-center text-light">
                 <h5 class="card-title">@item.Name</h5>
                 <p class="card-text pt-2" style="min-height: 60px;">@item.Ingredients</p>
-                <p class="card-text fw-bold fs-5
-                   text-success">@item.Price.ToString("C")</p>
+                <p class="card-text fw-bold fs-5">@item.Price.ToString("C")</p>
                 @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn pizzaCardBtn" })
             </div>
         </div>

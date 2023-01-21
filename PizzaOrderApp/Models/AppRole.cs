@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -43,6 +44,7 @@ namespace PizzaOrderApp.Models
             List<string> roles = new List<string>();
             try
             {
+                
                 Users user = db.UsersTab.Where(u => u.Username == username).First();
                 roles.Add(user.Role);
                 return roles.ToArray();

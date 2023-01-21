@@ -149,6 +149,7 @@
       <DependentUpon>202301202252170_AddedBoolPersistenceInUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\ProdForOrder.cs" />
@@ -233,6 +234,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Products\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

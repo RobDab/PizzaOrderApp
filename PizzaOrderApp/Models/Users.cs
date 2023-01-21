@@ -12,6 +12,7 @@ namespace PizzaOrderApp.Models
         [Key]
         public int UserID { get; set; }
 
+        
         [Required]
         [StringLength(20)]
         public string Username { get; set; }
@@ -20,11 +21,12 @@ namespace PizzaOrderApp.Models
         [StringLength(20)]
         public string Password { get; set; }
 
+        [Display(Name = "Ruolo")]
         [Required]
         [StringLength(10)]
         public string Role { get; set; }
 
-
+        [Display(Name = "Tienimi Collegato")]
         public bool RememberMe { get; set; }
 
         public virtual Order OrderTab { get; set; }

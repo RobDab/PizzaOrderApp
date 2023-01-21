@@ -1,10 +1,10 @@
-﻿@model PizzaOrderApp.Models.ProductsTab
+﻿@model PizzaOrderApp.Models.Products
 
 @{
     ViewBag.Title = "Create";
 }
 
-@*<h2>Create</h2>*@
+
 
 
 @using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -32,7 +32,9 @@
                 
                 @Html.Editor("uploadedImg",new { htmlAttributes = new { @name="uploadedImg", @class = "form-control", @type = "file" } })
                 @{Html.EnableClientValidation(true);}
-                @*@Html.ValidationMessageFor(model => model.URLImg, "", new { @class = "text-danger" })*@
+                
+
+
             </div>
         </div>
         
