@@ -235,6 +235,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Products\IndexAdmin.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

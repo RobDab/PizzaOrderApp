@@ -11,13 +11,19 @@
     z-index:2;
 }
 
+/*#container {
+    background-image: url('assets/bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+}*/
+
 #bgimgDiv {
   
     background-image: url('assets/bgimg.jpg');
     background-size: cover;
     background-position:center;
     min-height: 100vh;
-    z-index:1;
+    /*z-index:1;*/
 }
 
 

@@ -30,7 +30,7 @@ namespace PizzaOrderApp.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index","Home");
             }
             try
             {
@@ -41,9 +41,10 @@ namespace PizzaOrderApp.Controllers
                 }
                 return View(product);
             }
-            catch(Exception ex)
+            catch
             {
-                ViewBag.ErrMsg = ex.Message;
+                ViewBag.ErrMsg = "Qualcosa è andato storto, torna alla Home";
+                
             }
             
             return View();
@@ -149,5 +150,7 @@ namespace PizzaOrderApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }

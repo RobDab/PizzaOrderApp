@@ -22,5 +22,8 @@ namespace PizzaOrderApp.Models
         public virtual Order OrderTab { get; set; }
 
         public virtual Products ProductsTab { get; set; }
+
+        //[NotMapped]
+        //public static List<ProdForOrder> ProdInOrder { get; set; }
     }
 }
