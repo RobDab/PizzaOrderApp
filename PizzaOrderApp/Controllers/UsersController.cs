@@ -12,11 +12,26 @@ namespace PizzaOrderApp.Controllers
     {
         private DBContext db = new DBContext();
         // GET: Users
-        
+
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
-            return View();
+            return View(db.UsersTab.ToList());
         }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult Delete(int? id)
+        {
+            Users UserToDelete = db.UsersTab.Find(id);
+
+            db.UsersTab.Remove(UserToDelete);
+            db.SaveChanges();
+
+            return RedirectToAction("Index","Users");
+        }
+
+        
+
 
         public ActionResult Login()
         {

@@ -25,5 +25,7 @@ namespace PizzaOrderApp.Models
 
         [NotMapped]
         public static List<ProdForOrder> ProdList = new List<ProdForOrder>();
+
+       
     }
 }

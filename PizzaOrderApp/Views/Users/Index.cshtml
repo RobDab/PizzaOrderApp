@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PizzaOrderApp.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="d-flex">
+    <h2>Lista utenti</h2>
+    <span class="ms-auto">
+        <a href="@Url.Action("AdminSignIn","Users")" class="btn btn-warning text-dark fs-6 fw-bold" >Aggiungi</a>
+    </span>
+    
+</div>
+
+<table class="table text-light w-75 mx-auto mt-5">
+    <tr class="fs-5">
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="userRow">
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+       
+        <td>
+            <a href="@Url.Action("Delete", "Users", new { id = item.UserID})" class="btn btn-danger text-light" style="border: 0, solid; border-radius: 40%; font-size:0.85rem;"><i class="fa-solid fa-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
+

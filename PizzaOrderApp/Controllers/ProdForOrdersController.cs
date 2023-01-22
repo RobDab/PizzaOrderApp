@@ -36,6 +36,25 @@ namespace PizzaOrderApp.Controllers
             return View(prodForOrder);
         }
 
+        public ActionResult Cart()
+        {   
+            
+            List<Detail> CartProducts = new List<Detail>();
+            foreach(ProdForOrder detail in ProdForOrder.ProdList)
+            {
+                Detail toAdd = new Detail()
+                {
+                    Pizza = db.ProductsTab.Find(detail.ProductID),
+
+                    Quantity = detail.Quantity
+                };
+               
+                CartProducts.Add(toAdd);
+            }
+
+            
+            return View(CartProducts);
+        }
 
         [Authorize]
         public ActionResult AddToOrder(ProdForOrder detail)
@@ -43,12 +62,19 @@ namespace PizzaOrderApp.Controllers
             
             if(detail.Quantity != 0)
             {
+                foreach(ProdForOrder current in ProdForOrder.ProdList)
+                {
+                    if(current.ProductID == detail.ProductID)
+                    {
+                        current.Quantity += detail.Quantity;
+                        return RedirectToAction("Index", "Products");
+                    }
+                }
                 ProdForOrder.ProdList.Add(detail);
             }
             
 
-            //ViewBag.OrderID = new SelectList(db.OrderTab, "OrderID", "OrderAdress");
-            //ViewBag.ProductID = new SelectList(db.ProductsTab, "ProductID", "Name");
+           
             return RedirectToAction("Index","Products");
         }
 
@@ -109,18 +135,20 @@ namespace PizzaOrderApp.Controllers
         }
 
         // GET: ProdForOrders/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult DeleteFromCart(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index", "Home");
             }
-            ProdForOrder prodForOrder = db.ProdForOrderTab.Find(id);
-            if (prodForOrder == null)
+            ProdForOrder ToRemove = ProdForOrder.ProdList.Find(det => det.ProductID == id);
+            if (ToRemove == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index", "Home");
             }
-            return View(prodForOrder);
+
+            ProdForOrder.ProdList.Remove(ToRemove);
+            return RedirectToAction("Cart", "ProdForOrders");
         }
 
         // POST: ProdForOrders/Delete/5

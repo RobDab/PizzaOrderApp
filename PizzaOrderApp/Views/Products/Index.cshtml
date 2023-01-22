@@ -21,7 +21,7 @@
 @if (PizzaOrderApp.Models.ProdForOrder.ProdList.Count() != 0)
 {
     <div class="text-center mb-3">
-        <a href="@Url.Action("Create","OrderTabs")" class="btn btn-warning text-dark fs-4 fw-bold mb-3 ">Concludi Ordine</a>
+        <a href="@Url.Action("Cart","ProdForOrders")" class="btn btn-warning text-dark fs-4 fw-bold mb-3 ">Concludi Ordine</a>
 
     </div>
 }
@@ -37,7 +37,7 @@
                 <h5 class="card-title">@item.Name</h5>
                 <p class="card-text pt-2" style="min-height: 60px;">@item.Ingredients</p>
                 <p class="card-text fw-bold fs-5">@item.Price.ToString("C")</p>
-                @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn pizzaCardBtn" })
+                @Html.ActionLink("Scopri", "Details", new { id = item.ProductID }, new { @class = "btn pizzaCardBtn" })
             </div>
         </div>
 

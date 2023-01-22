@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PizzaOrderApp.Models.Detail>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2 class="text-center mb-5">Il tuo Ordine</h2>
+<div class="d-flex justify-content-between">
+    @Html.ActionLink("Seleziona", "Index", "Products", null, new { @class = "btn btn-warning text-dark fs-5 fw-bold w-25" })
+    @Html.ActionLink("Conferma", "AddOrder", "OrderTabs", null, new { @class = "btn btn-success text-light fs-5 fw-bold w-50" })
+
+</div>
+
+<div class="d-flex gap-4 flex-wrap justify-content-center mt-5">
+    @foreach (var item in Model)
+    {
+        <div class="card border-0 text-dark bg-opacity-10 pizzaCard" style="max-width: 18rem;">
+
+            <img src="~/Content/Assets/@item.Pizza.URLImg" class="card-img-top" alt="pizza image">
+            <div class="card-body text-center text-light">
+                <h5 class="card-title">@item.Pizza.Name</h5>
+                <p class="card-text fw-bold fs-5">@item.Pizza.Price.ToString("C")</p>
+                <div class="row justify-content-around">
+                    @*<input type="number" value="@item.Quantity" class="col-3 text-center" style="border: 0; border-radius: 5px;" />*@
+                    <span>Ne vuoi <b>@item.Quantity</b></span>
+                    <a href="@Url.Action("DeleteFromCart","ProdForOrders",new { id = item.Pizza.ProductID })" class="btn btn-danger fw-bold mt-2 w-25"><i class="fa-solid fa-trash"></i></a>
+                </div>
+                
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@

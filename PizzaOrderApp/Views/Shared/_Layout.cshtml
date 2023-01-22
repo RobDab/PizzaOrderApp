@@ -35,10 +35,16 @@
                                 <a href="@Url.Action("Logout","Users")" class="btn btn-danger text-white fs-5"> <i class="fa-solid fa-user me-1"></i>Log Out</a>
                                 if (User.IsInRole("admin"))
                                 {
-                                   <a href="@Url.Action("AdminSignIn","Users")" class="btn btn-warning text-dark fs-5">Aggiungi utente</a>
+                                    <a href="@Url.Action("Index","Users")" class="btn btn-warning text-dark fs-5">Gestisci Utenti</a>
                                 }
-                                
 
+                                if (User.IsInRole("user"))
+                                {
+                                    if (PizzaOrderApp.Models.ProdForOrder.ProdList.Count() != 0)
+                                    {
+                                        <a href="@Url.Action("Cart","ProdForOrders")" class="btn btn-warning text-dark fs-5"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    }
+                                }
 
                             }
                             else

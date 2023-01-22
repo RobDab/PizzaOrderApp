@@ -152,6 +152,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Detail.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\ProdForOrder.cs" />
     <Compile Include="Models\Products.cs" />
@@ -239,11 +240,12 @@
     <Content Include="Views\Users\SignIn.cshtml" />
     <Content Include="Views\Users\AdminSignIn.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\ProdForOrders\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OrderTabs\" />
-    <Folder Include="Views\ProdForOrders\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

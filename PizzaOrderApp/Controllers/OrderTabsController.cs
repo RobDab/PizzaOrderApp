@@ -39,7 +39,7 @@ namespace PizzaOrderApp.Controllers
         // GET: OrderTabs/Create
         public ActionResult Create()
         {
-            ViewBag.OrderID = new SelectList(db.UsersTab, "UserID", "Username");
+            
             return View();
         }
 
