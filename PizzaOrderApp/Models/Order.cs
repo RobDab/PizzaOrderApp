@@ -36,6 +36,7 @@ namespace PizzaOrderApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProdForOrder> ProdForOrderTab { get; set; }
 
-        
+        //[NotMapped]
+        //public static List<ProdForOrder> ProductList { get; set; }
     }
 }

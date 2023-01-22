@@ -129,15 +129,6 @@ namespace PizzaOrderApp.Controllers
             base.Dispose(disposing);
         }
 
-        //public ActionResult AddToOrder(int? ProductID)
-        //{
-        //    if (id == null)
-        //    {
-        //        return RedirectToAction("Index", "Products");
-        //    }
-
-            
-        //    return View();
-        //}
+        
     }
 }

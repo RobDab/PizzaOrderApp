@@ -39,7 +39,8 @@ namespace PizzaOrderApp.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(product);
+                ViewBag.Product = product;
+                return View();
             }
             catch
             {

@@ -1,14 +1,10 @@
 ﻿@model PizzaOrderApp.Models.Users
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "AdminSignIn";
 }
 
-<h2>Login</h2>
-@if(ViewBag.LogInErr != null)
-            {
-                <p>@ViewBag.LogInErr</p>
-            }
+<h2 style="text-align: center;">Registrazione nuovo utente</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -26,7 +22,7 @@
             </div>
         </div>
 
-        <div class="form-group mt-4">
+        <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
@@ -34,24 +30,24 @@
             </div>
         </div>
 
-        <div class="form-group mt-4 w-50">
-            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-2 d-inline-block">
-                <div class="checkbox d-inline-block ms-4">
-                    @Html.EditorFor(model => model.RememberMe)
-                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Role, new SelectList(ViewBag.RolesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
             </div>
         </div>
 
+       
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10 mt-4">
-                <input type="submit" value="Accedi" class="btn btn-success fw-bolder" />
-                @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-link text-light p-0 ms-5" })
-                @Html.ActionLink("Registrati", "SignIn", "Users", null, new { @class = "btn btn-link text-light p-0 ms-5" })
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-warning text-light fs-4" />
             </div>
         </div>
     </div>
 }
 
-
+<div>
+    @Html.ActionLink("Indietro", "IndexAdmin", "Products",null, new { @class = "btn btn-default fs-5"})
+</div>

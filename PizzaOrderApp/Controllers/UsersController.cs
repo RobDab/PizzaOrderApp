@@ -12,6 +12,7 @@ namespace PizzaOrderApp.Controllers
     {
         private DBContext db = new DBContext();
         // GET: Users
+        
         public ActionResult Index()
         {
             return View();
@@ -55,5 +56,68 @@ namespace PizzaOrderApp.Controllers
             return RedirectToAction("Index","Home");
 
         }
+
+        public ActionResult SignIn() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignIn(Users user)
+        {
+            var count = db.UsersTab.Count(u => u.Username == user.Username);
+            if(count == 0) {
+                user.Role = "user";
+                db.UsersTab.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Users");
+            }
+            else
+            {
+                ViewBag.UserExistMsg = "Sembra che questo username sia già in uso. Provane uno più Pizzastico!";
+                return View();
+            }    
+            
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult AdminSignIn()
+        {
+            List<SelectListItem> RolesList = new List<SelectListItem>();
+            SelectListItem adminRole = new SelectListItem();
+            adminRole.Text = "admin";
+            adminRole.Value = "admin";
+            RolesList.Add(adminRole);
+
+            SelectListItem userRole = new SelectListItem();
+            userRole.Text = "user";
+            userRole.Value = "user";
+            RolesList.Add(userRole);
+
+            ViewBag.RolesList = RolesList;
+
+            return View();
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public ActionResult AdminSignIn(Users user)
+        {
+            var count = db.UsersTab.Count(u => u.Username == user.Username);
+            if (count == 0)
+            {
+                
+                db.UsersTab.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("IndexAdmin", "Products");
+            }
+            else
+            {
+                ViewBag.UserExistMsg = "Sembra che questo username sia già in uso. Riprova";
+                return View();
+            }
+        }
+
+       
     }
 }

@@ -30,5 +30,7 @@ namespace PizzaOrderApp.Models
         public bool RememberMe { get; set; }
 
         public virtual Order OrderTab { get; set; }
+
+        
     }
 }

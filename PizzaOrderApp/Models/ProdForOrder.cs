@@ -9,7 +9,7 @@ namespace PizzaOrderApp.Models
     [Table("ProdForOrderTab")]
     public partial class ProdForOrder
     {
-        
+
         public int ID { get; set; }
 
         public int OrderID { get; set; }
@@ -23,7 +23,7 @@ namespace PizzaOrderApp.Models
 
         public virtual Products ProductsTab { get; set; }
 
-        //[NotMapped]
-        //public static List<ProdForOrder> ProdInOrder { get; set; }
+        [NotMapped]
+        public static List<ProdForOrder> ProdList = new List<ProdForOrder>();
     }
 }

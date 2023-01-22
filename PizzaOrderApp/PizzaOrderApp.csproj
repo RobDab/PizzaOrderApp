@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderTabsController.cs" />
+    <Compile Include="Controllers\ProdForOrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,11 +236,14 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Products\IndexAdmin.cshtml" />
+    <Content Include="Views\Users\SignIn.cshtml" />
+    <Content Include="Views\Users\AdminSignIn.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OrderTabs\" />
+    <Folder Include="Views\ProdForOrders\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
