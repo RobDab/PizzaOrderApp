@@ -27,11 +27,16 @@ namespace PizzaOrderApp.Models
         public decimal OrderTotal { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Indirizzo")]
+        [Required]
         public string OrderAdress { get; set; }
+
+        [Display(Name = "Note aggiuntive")]
+        public string OrderNotes { get; set; }
 
         public bool? Delivered { get; set; }
 
-        public virtual Users UsersTab { get; set; }
+        public Users UsersTab { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProdForOrder> ProdForOrderTab { get; set; }

@@ -37,9 +37,49 @@ namespace PizzaOrderApp.Controllers
         }
 
         // GET: OrderTabs/Create
-        public ActionResult Create()
+        public ActionResult AddOrder()
         {
+            double Total = 0;
+            foreach(ProdForOrder detail in ProdForOrder.ProdList)
+            {
+                Products pizza = db.ProductsTab.Find(detail.ProductID);
+                double detailTotal = Convert.ToDouble(detail.Quantity * pizza.Price);
+                Total += detailTotal; 
+            }
+
+            ViewBag.Total = Total;
             
+            TempData["Total"] = Total;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddOrder(Order order)
+        {
+            Users user = db.UsersTab.Where(u => u.Username == User.Identity.Name).First();
+           
+            order.UserID = user.UserID;
+            order.OrderDate = DateTime.Now;
+            order.OrderTotal = Convert.ToDecimal(TempData["Total"]);
+            if(order.OrderAdress == null)
+            {
+                
+                ViewBag.Total = order.OrderTotal;
+                return View();
+            }
+            db.OrderTab.Add(order);
+
+            foreach(ProdForOrder detail in ProdForOrder.ProdList)
+            {
+                detail.OrderID = order.OrderID;
+                db.ProdForOrderTab.Add(detail);
+                
+            }
+
+            ProdForOrder.ProdList.Clear();
+
+            db.SaveChanges();
+            ViewBag.Success = "Ordine ricevuto";
             return View();
         }
 

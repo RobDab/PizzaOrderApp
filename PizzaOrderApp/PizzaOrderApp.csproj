@@ -149,6 +149,14 @@
     <Compile Include="Migrations\202301202252170_AddedBoolPersistenceInUsers.designer.cs">
       <DependentUpon>202301202252170_AddedBoolPersistenceInUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301222255114_AddedOrderNotes.cs" />
+    <Compile Include="Migrations\202301222255114_AddedOrderNotes.designer.cs">
+      <DependentUpon>202301222255114_AddedOrderNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301222354131_RequiredOrderTotal.cs" />
+    <Compile Include="Migrations\202301222354131_RequiredOrderTotal.designer.cs">
+      <DependentUpon>202301222354131_RequiredOrderTotal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\DBContext.cs" />
@@ -242,10 +250,10 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\ProdForOrders\Cart.cshtml" />
+    <Content Include="Views\OrderTabs\AddOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\OrderTabs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -261,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301202252170_AddedBoolPersistenceInUsers.resx">
       <DependentUpon>202301202252170_AddedBoolPersistenceInUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301222255114_AddedOrderNotes.resx">
+      <DependentUpon>202301222255114_AddedOrderNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301222354131_RequiredOrderTotal.resx">
+      <DependentUpon>202301222354131_RequiredOrderTotal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

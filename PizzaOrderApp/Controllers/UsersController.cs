@@ -67,6 +67,7 @@ namespace PizzaOrderApp.Controllers
 
         public ActionResult Logout()
         {
+            ProdForOrder.ProdList.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home");
 
